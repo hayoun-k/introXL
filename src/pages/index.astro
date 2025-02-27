@@ -1,0 +1,131 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Image from 'astro/components/Image.astro';
+import Hero_Image from '../assets/image/Hero_Image.png';
+import Origination from '../assets/image/home-images/Origination.png';
+import Underwriting from '../assets/image/home-images/Underwriting.png';
+import Servicing from '../assets/image/home-images/servicing.png';
+import collections from '../assets/image/home-images/collections.png';
+import Payments from '../assets/image/home-images/payments.png';
+
+// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
+// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+---
+
+<Layout>
+	<main>
+		<section class="hero">
+			<div class="text-container">
+				<h1>Infrastructure to Expand Your Lending Portfolio</h1>
+				<p>Join hundreds of lenders who trust Intro XL to streamline loan origination and servicing. Enhance your services and boost profitability with our comprehensive platform.</p>
+			</div>
+			<div class="image-container">
+				<Image src={Hero_Image} alt="hero image" />
+			</div>
+		</section>
+		<section class="capabilities">
+			<h2>Core Platform Capabilities</h2>
+			<p>Our API architecture provides the foundation for a modern lending platform, offering flexibility, scalability, and seamless integration.</p>
+			<ul class="cap-list">
+				<li class="cap-item">
+					<Image src={Origination} alt='origination'></Image>
+					<div class="text-container">
+						<h3>Origination</h3>
+						<p>Accelerate loan growth and improve borrower satisfaction through a streamlined application process, enhanced data capture, and automated decisioning.</p>
+					</div>
+				</li>
+				<li class="cap-item">
+					<Image src={Underwriting} alt="underwriting"></Image>
+					<div class="text-container">
+						<h3>Underwriting</h3>
+						<p>Mitigate risk and optimize portfolio performance with advanced analytics, predictive modeling, and robust scorecard capabilities. Reduce charge-offs and first payment defaults through precise risk assessment.</p>
+					</div>
+				</li>
+				<li class="cap-item">
+					<Image src={Servicing} alt="servicing"></Image>
+					<div class="text-container">
+						<h3>Servicing</h3>
+						<p>Deliver exceptional customer experiences, increase loan retention, and maximize efficiency through automated workflows, self-service portals, and proactive communication.</p>
+					</div>
+				</li>
+				<li class="cap-item">
+					<Image src={collections} alt="collections"></Image>
+					<div class="text-container">
+						<h3>Collections</h3>
+						<p>Optimize recovery rates and reduce delinquency costs with automated communications, and efficient payment processing.</p>
+					</div>
+				</li>
+				<li class="cap-item">
+					<Image src={Payments} alt="payments"></Image>
+					<div class="text-container">
+						<h3>Payments</h3>
+						<p>Enhance cash flow and reduce operational costs with secure, flexible payment options, automated reconciliation, and fraud prevention.</p>
+					</div>
+				</li>
+			</ul>
+		</section>
+	</main>
+</Layout>
+
+<style>
+
+	.hero {
+		padding: 40px 140px;
+		display: flex;
+		flex-wrap: nowrap;
+		gap: 32px;
+	}
+
+	.hero h1 {
+		margin-bottom: 24px;
+		font-size: 72px;
+		font-weight: 500;
+		letter-spacing: -3px;
+		line-height: 1.1;
+	}
+
+	.hero img {
+		max-width: 100%;
+		height: auto;
+	}
+
+	.capabilities {
+		padding-inline: 140px;
+	}
+
+	.capabilities h2 {
+		margin-bottom: 24px;
+		font-size: 56px;
+		text-align: center;
+	}
+
+	.capabilities > p {
+		text-align: center;
+	}
+
+.cap-list {
+
+}
+
+.cap-item {
+	display: flex;
+	gap: 60px;
+}
+
+.cap-item:nth-of-type(2n) img {
+	order: 2;
+}
+
+.cap-item .text-container {
+	margin-block: auto;
+}
+
+.cap-item h3 {
+	margin-bottom: 26px;
+	/* text-align: center; */
+	font-size: 40px;
+	line-height: 46px;
+	letter-spacing: -2px;
+}
+
+</style>

@@ -1,0 +1,148 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Card from "../components/Card.astro";
+import FPDR from "../assets/image/ADVANTAGE-IMAGES/First_Payment_Default_Rates.png";
+import DR from "../assets/image/ADVANTAGE-IMAGES/Delinquency_Rates.png"
+import COR from "../assets/image/ADVANTAGE-IMAGES/Charge_Off_Rates.png"
+import LALCR from "../assets/image/ADVANTAGE-IMAGES/Loan_Approval_and_Lead_Conversion_Rates.png";
+import ALPT from "../assets/image/ADVANTAGE-IMAGES/Average_Loan_Processing_Times.png";
+import CPLO from "../assets/image/ADVANTAGE-IMAGES/Cost_Per_Loan_Originated.png";
+import CRR from "../assets/image/ADVANTAGE-IMAGES/Customer_Retention_Rate.png";
+import Recoveries from "../assets/image/ADVANTAGE-IMAGES/Recoveries.png";
+
+---
+
+<Layout>
+  <main>
+    <div class="text-container">
+      <h1>The IntroXL Advantage</h1>
+      <p>Start lending in 3 weeks, not 3 months.  Our streamlined onboarding process empowers lenders to go from planning to active deployment in a matter of weeks – a fraction of the industry standard. Go LIVE without delay, to scale faster and serve customers faster.</p>
+    </div>
+    <div class="card-container">
+      <ul class="card-list">
+        <Card 
+          class="adv-card"
+          imgSrc={FPDR}
+          imgTitle="First Payment Default Rates"
+          imgTxt="AI-powered credit scoring to minimize first payment defaults and charge offs.   Dynamic loan term adjustments minimize defaults."
+        />
+        <Card
+          class="adv-card"
+          imgSrc={DR}
+          imgTitle="Delinquency Rates"
+          imgTxt="Convenient and seamless payment options, combined with automated reminders and predictive analytics, proactively reduce late payments. Advanced payment solutions allow borrowers to set up flexible payment schedules, while intelligent alerts and insights identify at-risk accounts early, enabling timely interventions. "
+        />
+        <Card
+          class="adv-card"
+          imgSrc={COR}
+          imgTitle="Charge-Off Rates"
+          imgTxt="Implement early warning systems that provide predictive analytics to identify borrowers at risk of delinquency early on."
+        />
+        <Card
+          class="adv-card"
+          imgSrc={LALCR}
+          imgTitle="Loan Approval and Lead Conversion Rates"
+          imgTxt="Digital onboarding and real-time verification speed up approvals, using AI-powered decision engines to provide instant loan decisions."
+        />
+        <Card
+          class="adv-card"
+          imgSrc={ALPT}
+          imgTitle="Average Loan Processing Times"
+          imgTxt="Automated underwriting streamlines the process by implementing IBV and IDV services to streamline the loan process review while using real time collaboration tools to facilitate efficient communication between teams. Speed up conversion rates from days to hours to minutes to instantly."
+        />
+        <Card
+          class="adv-card"
+          imgSrc={CPLO}
+          imgTitle="Cost Per Loan Originated"
+          imgTxt="Reduce operational costs using data analytics and alternative data to optimize marketing spend and target the right customer segments. "
+        />
+        <Card
+          class="adv-card"
+          imgSrc={CRR}
+          imgTitle="Customer Retention Rate"
+          imgTxt="CRM and analytics to enhance the borrower experience and loyalty.  Utilize business rules and drip marketing campaigns with an omni media approach to customer engagement."
+        />
+        <Card
+          class="adv-card"
+          imgSrc={Recoveries}
+          imgTitle="Recoveries"
+          imgTxt="Optimized through early intervention, flexible plans, automated reminders, data-driven prioritization, and effective communication, maximizing lender returns while supporting borrower success."
+      />
+      </ul>
+    </div>
+  </main>
+</Layout>
+
+<style>
+  main {
+    padding-top: 40px;
+    padding-inline: 140px;
+  }
+
+  .text-container {
+    padding: 40px;
+  }
+
+  h1 {
+    margin-bottom: 24px;
+    font-size: 56px;
+    line-height: 60px;
+    text-align: center;
+  }
+
+  .text-container p {
+    text-align: center;
+    line-height: 1.5;
+  }
+
+  .card-container {
+    padding-top: 40px;
+  }
+
+  .card-list {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+  }
+
+  .adv-card {
+    padding: 40px;
+    background-color: rgb(246, 248, 249);
+    border-radius: 12px;
+  }
+
+  .adv-card:nth-of-type(2n-1) > :global(img) {
+    order: 2;
+  }
+
+  @media screen and (width < 1440px) {
+    main {
+      padding-inline: 40px;
+    }
+
+
+
+    .adv-card:nth-of-type(2n-1) > :global(img) {
+    order: unset;
+  }
+  }
+
+  @media screen and (width < 1024px) {
+
+    main {
+      padding: 20px;
+    }
+
+    .text-container {
+      padding: 0;
+    }
+
+    h1 {
+      font-size: 36px;
+    }
+
+    .text-container p {
+      font-size: 18px;
+    }
+  }
+</style>

@@ -1,0 +1,88 @@
+---
+
+---
+
+<form>
+  <div class="form-row">
+    <label for="name">Name</label>
+    <input id="name" type="text" placeholder="Joe Doe" required>
+  </div>
+  <div class="form-row">
+    <label for="email">Email</label>
+    <input id="email" type="email" placeholder="jdoe@email.com" required>
+  </div>
+  <div class="form-row">
+    <label for="phone">Phone number</label>
+    <input id="phone" type="tel" placeholder="###-###-####" required>
+  </div>
+  <div class="form-row">
+    <label for="cname">Company</label>
+    <input id="cname" type="text" placeholder="Enter company name">
+  </div>
+  <button class="btn-primary">Book a demo</button>
+</form>
+
+<style>
+  form {
+    width: fit-content;
+    padding: 20px;
+    border-radius: 12px;
+    border: 2px solid var(--clr-darkgray);
+    display: flex;
+    gap: 20px;
+    flex-direction: column;
+  }
+
+  label {
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    line-height: 1.2;
+    color: rgb(136,136,136);
+    position: relative;
+    display: block;
+  }
+
+  label::after {
+    content: "Required";
+    position: absolute;
+    right: 0;
+  }
+
+  input {
+    min-width: 300px;
+    padding: 12px;
+    border: 1px solid rgb(153, 153, 153, 0.2);
+    border-radius: 10px;
+    background-color: rgba(187, 187, 187, 0.15);
+    font-family: 'Manrope', sans-serif;
+    font-size: 14px;
+    display: block;
+  }
+
+  input::placeholder {
+    color: #999999;
+
+  }
+
+  button {
+    width: 100%;
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    transition: all ease-in-out 0.2s;
+  }
+
+  button:hover {
+    background-color: rgb(49,232,165);
+    color: rgb(26,116,114);
+  }
+
+  @media screen and (width < 1024px) {
+    form {
+      width: 100%;
+    }
+
+    input {
+      width: 100%;
+    }
+  }
+</style>

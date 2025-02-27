@@ -1,0 +1,104 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Image from "astro/components/Image.astro";
+import Card from "../components/Card.astro";
+import introAbout from "../assets/image/intro-about.jpg";
+import contactSmall from "../assets/image/contact-small.png";
+
+---
+<Layout>
+  <main>
+    <section class="hero">
+      <h1>About us</h1>
+      <p>Since 2003, our team of lending professionals has been at the forefront of the industry, mastering a wide range of lending models and loan products to meet your unique challenges.  At Intro XL, we are your trusted partner in consumer lending, delivering innovative solutions backed by decades of hands-on experience.</p>
+      <div class="image-container">
+        <Image
+          src={introAbout}
+          alt="intro image"
+          class="intro-social"
+        />
+      </div>
+    </section>
+    <section class="reputation">
+      <div class="text-container">
+        <h2>Trusted Expertise in Subprime Lending: Proven Success, Lasting Partnerships</h2>
+        <p>Our reputation is built on thousands of successful audits and countless implementations in the subprime lending space. This isn't just about numbers—it's a testament to our dedication, experience, and passion for helping our partners succeed. In short, we've seen it all and know lending inside and out, and we're excited to share that expertise with you.</p>
+        <p>When you choose to work with us, you're not just selecting a service—you're teaming up with people who truly care about your success. We blend our deep industry knowledge with the latest technology to create lending solutions that grow with you. Let’s simplify your operations, boost efficiency, and build a lasting path to growth together.</p>
+      </div>
+      <Image
+        src={contactSmall}
+        alt="contact image"
+        class="rep-image"
+      />
+    </section>
+  </main>
+</Layout>
+
+<style>
+  main {
+    padding: 80px 140px;
+  }
+
+  h1 {
+    margin-bottom: 60px;
+    font-size: 56px;
+    line-height: 60px;
+    font-weight: 500;
+    text-align: center;
+  }
+
+  .hero p {
+    margin-bottom: 60px;
+    line-height: 1.5;
+    text-align: center;
+  }
+
+  .intro-social {
+    margin-bottom: 60px;
+    width: 100%;
+    object-fit: contain;
+    object-position: 50% 50%;
+  }
+
+  .reputation {
+    display: flex;
+    gap: 40px;
+  }
+
+  .reputation h2 {
+    margin-bottom: 40px;
+    font-size: 32px;
+    line-height: 60px;
+    font-weight: 500;
+  }
+
+  .reputation p {
+    margin-top: 30px;
+    line-height: 1.5;
+  }
+
+  .rep-image {
+    object-fit: contain;
+    height: auto;
+  }
+
+  @media screen and (width < 1440px) {
+    main {
+      padding-inline: 40px;
+    }
+
+    h1,.reputation h2 {
+      font-size: 36px;
+    }
+
+    .hero p {
+      font-size: 18px;
+    }
+
+    .reputation {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+  }
+</style>

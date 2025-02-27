@@ -1,0 +1,72 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Card from "../components/Card.astro";
+import Form from "../components/Form.astro";
+import contactSmall from "../assets/image/contact-small.png";
+---
+
+<Layout>
+  <main>
+    <section class="hero">
+      <div class="text-container">
+        <h1>Contact</h1>
+        <p>With a track record of thousands of successful audits and implementations, we’ve established ourselves as a trusted leader in subprime lending. But our true strength lies beyond the numbers—it’s in our unwavering commitment to your success.</p>
+      </div>
+      <div class="form-container">
+        <Form />
+      </div>
+    </section>
+    <section class="get-in-touch">
+      <Card
+        imgSrc={contactSmall}
+        imgTitle="Get in touch"
+        imgTxt="We’re here to help you navigate the complexities of subprime lending with confidence. Whether you have questions about our services, need expert guidance, or are ready to take the next step, our team is just a message away."
+      >
+      <div class="reach-us">
+        <h4>How to Reach Us:</h4>
+        <p>1100 Nerge Rd, Elk Grove Village, IL 60007</p>
+        <a href="mailto:sales@introxl.com">sales@introxl.com</a>
+      </div>
+      </Card>
+    </section>
+  </main>
+</Layout>
+
+<style>
+  .hero {
+    padding: 40px 140px;
+  }
+
+  .get-in-touch {
+    padding: 80px 140px;
+  }
+
+
+  .reach-us {
+    margin-top: 30px;
+  }
+
+  .reach-us h4 {
+    font-size: 20px;
+    line-height: 1.5;
+    font-weight: 700;
+  }
+
+  .reach-us p {
+    font-size: 20px;
+    line-height: 1.5;
+  }
+
+  .reach-us a {
+    font-size: 20px;
+    line-height: 1.5;
+    color: var(--clr-green);
+  }
+
+  @media screen and (width < 1440px) {
+    .hero, .get-in-touch {
+      padding-inline: 40px;
+    }
+  }
+
+</style>

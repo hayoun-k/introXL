@@ -1,0 +1,213 @@
+---
+import Image from "astro/components/Image.astro"
+import getStart from "../assets/image/get_started_image.png";
+import introLogoWhite from "../assets/image/intro_logo_white.svg";
+---
+
+<footer>
+  <section class="slogan">
+    <h2>$1b in loans</h2>
+    <h2>$3b in payments</h2>
+    <h2>500mm leads processed</h2>
+  </section>
+  <section class="cta">
+    <Image src={getStart} alt="Get Started" />
+    <div class="text-container">
+      <h2>Getting Started is easy</h2>
+      <p>Start lending in weeks, not months</p>
+      <a href="#" class="btn-primary">Book a demo</a>
+    </div>
+  </section>
+  <section class="info">
+      <div class="left">
+        <Image src={introLogoWhite} alt="logo" width="197" />
+        <p>Financial Infrastructure to Grow Your Lending Portfolio</p>
+      </div>
+      <div class="right">
+        <p class="address">1100 Nerge Rd<br>Elk Growve Village, IL 60007</p>
+        <a href="mailto:sales@introXL.com">sales@introXL.com</a>
+      </div>
+    <a href="#" class="btn-primary">Book a demo</a>
+  </section>
+  <section class="nav">
+    <nav class="footer-nav">
+      <ul class="nav-list">
+        <li><a href="#">The Intro XL Advantage</a></li>
+        <li><a href="#">Solutions</a></li>
+        <li><a href="#">Partners</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Contact us</a></li>
+      </ul>
+    </nav>
+  </section>
+</footer>
+
+<style>
+
+  .slogan {
+    width: 100%;
+    padding: 40px 140px;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .slogan h2 {
+    color: var(--clr-green);
+    font-size: 40px;
+    line-height: 46px;
+    font-weight: 700;
+    letter-spacing: -2px;
+  }
+
+  .cta {
+    padding: 40px 140px;
+    background-color: rgb(42, 48, 83);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 60px;
+  }
+
+  .cta h2 {
+    margin-bottom: 26px;
+    font-size: 40px;
+    line-height: 46px;
+    letter-spacing: -2px;
+    color: white;
+  }
+
+  .cta p {
+    margin-bottom: 26px;
+    font-size: 18px;
+    line-height: 28px;
+    color: white;
+  }
+
+  .info, .nav {
+    background-color: rgb(32, 32, 32);
+  }
+
+  .info {
+    padding: 40px 140px;
+    display: grid;
+    grid-template-columns: 1fr min-content;
+  }
+
+  .info .flex-container {
+    display: flex;
+    align-items: center;
+    column-gap: 300px;
+  }
+
+  .info .left {
+    margin-bottom: 26px;
+    display: flex;
+    flex-direction: column;
+    gap: 26px;
+  }
+
+  .info .left p {
+    max-width: 700px;
+    font-size: 40px;
+    line-height: 46px;
+    line-height: -2px;
+    font-weight: 500;
+    color: white;
+  }
+
+  .info .right {
+    font-size: 18px;
+    line-height: 28px;
+  }
+
+  .info .right p {
+    margin-bottom: 10px;
+    color: white;
+  }
+
+  .info .right a {
+    color: var(--clr-green);
+  }
+
+  /* .info .btn-primary {
+    justify-self: end;
+  } */
+
+  footer .nav {
+    padding: 20px 140px 40px 140px;
+
+  }
+
+  .footer-nav .nav-list {
+    padding-top: 40px;
+    padding-inline: 40px;
+    display: flex;
+    justify-content: space-between;
+    border-top: 2px solid rgb(90,90,90,0.2);
+  }
+
+  .footer-nav .nav-list li {
+    font-size: 18px;
+    line-height: 28px;
+    color: white;
+  }
+
+  @media screen and (width < 1440px) {
+    .slogan {
+      padding: 40px;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .cta {
+      padding: 40px;
+      flex-direction: column;
+    }
+
+    .cta .text-container {
+      text-align: center;
+    }
+
+    .cta .btn-primary {
+      justify-self: center;
+    }
+
+    .info {
+      padding: 40px;
+      column-gap: 120px;
+    }
+
+    .info .left p {
+      font-size: 24px;
+    }
+
+    .info .btn-primary {
+      grid-column: 2 / span 1;
+    }
+
+    .footer-nav .nav-list {
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+    }
+  }
+
+  @media screen and (width <1024px) {
+    .slogan h2 {
+      font-size: 24px;
+    }
+
+    .info {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+      text-align: center;
+    }
+
+    .info .left {
+      align-items: center;
+    }
+  }
+</style>

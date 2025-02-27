@@ -1,0 +1,122 @@
+:root {
+  --clr-darkblue: rgb(42,48,83);
+  --clr-darkgray: rgb(32,32,32);
+  --clr-green: rgb(2,164,112);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  position: relative;
+}
+
+h1,h2,h3,p,a,li,span {
+  font-family: 'Manrope', sans-serif;
+}
+
+h1,h2,h3 {
+  font-weight: 500;
+  color: var(--clr-darkblue);
+}
+
+p {
+  color: var(--clr-darkgray);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+li {
+  list-style-type: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+button {
+  border: none;
+}
+
+.btn-primary {
+  width: 130px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: none;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  gap: 10px;
+  font-weight: 500;
+  color: white;
+  background-color: rgb(26, 166, 114);
+  border-radius: 6px;
+}
+
+main p {
+  font-size: 20px;
+}
+
+.hero:has(form) {
+  padding: 40px 140px;
+  display: flex;
+  gap: 32px;
+}
+
+.hero:has(form) .text-container {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  justify-content: center;
+}
+
+.hero:has(form) h1 {
+  font-size: 72px;
+  line-height: 1.1;
+  font-weight: 500;
+  letter-spacing: -3px;
+}
+
+@media screen and (width < 1440px) {
+  .hero:has(form) {
+    padding-inline: 40px;
+  }
+
+  .hero:has(form) h1 {
+    font-size: 48px;
+  }
+}
+
+@media screen and (width <1024px) {
+  body {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .hero:has(form) {
+    flex-direction: column;
+  }
+
+  .hero:has(form) .text-container {
+    text-align: center;
+  }
+
+  .hero:has(form) h1 {
+    font-size: 44px;
+  }
+}
