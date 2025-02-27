@@ -76,6 +76,12 @@ import Payments from '../assets/image/home-images/payments.png';
 		gap: 32px;
 	}
 
+	.hero .text-container {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+	}
+
 	.hero h1 {
 		margin-bottom: 24px;
 		font-size: 72px;
@@ -128,4 +134,32 @@ import Payments from '../assets/image/home-images/payments.png';
 	letter-spacing: -2px;
 }
 
+@media screen and (width < 1440px) {
+	.hero, .capabilities {
+		padding-inline: 40px;
+	}
+
+	.hero h1 {
+		font-size: 48px;
+	}
+
+	.cap-list {
+		padding-block: 40px;
+	}
+
+	.cap-item {
+		padding-block: 20px;
+		flex-direction: column;
+		align-items: center;
+		text-align: center;
+	}
+
+	.cap-item:nth-of-type(2n) img {
+	order: unset;
+}
+}
+
+@media screen and (width < 1024px) {
+	
+}
 </style>
