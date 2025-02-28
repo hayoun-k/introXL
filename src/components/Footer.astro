@@ -11,8 +11,8 @@ import introLogoWhite from "../assets/image/intro_logo_white.svg";
     <h2>500mm leads processed</h2>
   </section>
   <section class="cta">
-    <Image src={getStart} alt="Get Started" />
-    <div class="text-container">
+    <Image src={getStart} alt="Get Started" class="left"/>
+    <div class="text-container right">
       <h2>Getting Started is easy</h2>
       <p>Start lending in weeks, not months</p>
       <a href="#" class="btn-primary">Book a demo</a>
@@ -40,6 +40,71 @@ import introLogoWhite from "../assets/image/intro_logo_white.svg";
       </ul>
     </nav>
   </section>
+  <script>
+    import gsap from 'gsap';
+		import { ScrollTrigger } from "gsap/ScrollTrigger";
+		gsap.registerPlugin(ScrollTrigger);
+		const slogan = document.querySelector('.slogan');
+		const ctaLeft = document.querySelector('.cta .left');
+    const ctaRight = document.querySelector('.cta .right');
+
+    gsap.set(slogan, {y: 50, opacity: 0});
+    const anim = gsap.to(slogan, {y:0, duration: 0.3,opacity: 1, paused: true});
+    ScrollTrigger.create({
+      trigger: slogan,
+      onEnter: () => anim.play()
+    });
+    ScrollTrigger.create({
+      trigger: slogan,
+      onLeave: () => anim.pause(0),
+    });
+    ScrollTrigger.create({
+      trigger: slogan,
+      onLeaveBack: () => anim.pause(0),
+    });
+    ScrollTrigger.create({
+      trigger: slogan,
+      onEnterBack: () => anim.play()
+    });
+
+    gsap.set(ctaLeft, {x: -300, opacity: 0});
+    const animTwo = gsap.to(ctaLeft, {x:0, duration: 0.3, opacity: 1, paused: true});
+    ScrollTrigger.create({
+      trigger: ctaLeft,
+      onEnter: () => animTwo.play()
+    });
+    ScrollTrigger.create({
+      trigger: ctaLeft,
+      onLeave: () => animTwo.pause(0),
+    });
+    ScrollTrigger.create({
+      trigger: ctaLeft,
+      onLeaveBack: () => animTwo.pause(0),
+    });
+    ScrollTrigger.create({
+      trigger: ctaLeft,
+      onEnterBack: () => animTwo.play()
+    });
+
+    gsap.set(ctaRight, {x: 300, opacity: 0});
+    const animThree = gsap.to(ctaRight, {x:0, duration: 0.3, opacity: 1, paused: true});
+    ScrollTrigger.create({
+      trigger: ctaRight,
+      onEnter: () => animThree.play()
+    });
+    ScrollTrigger.create({
+      trigger: ctaRight,
+      onLeave: () => animThree.pause(0),
+    });
+    ScrollTrigger.create({
+      trigger: ctaRight,
+      onLeaveBack: () => animThree.pause(0),
+    });
+    ScrollTrigger.create({
+      trigger: ctaRight,
+      onEnterBack: () => animThree.play()
+    });
+  </script>
 </footer>
 
 <style>
