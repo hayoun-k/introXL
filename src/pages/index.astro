@@ -27,35 +27,35 @@ import Payments from '../assets/image/home-images/payments.png';
 			<h2>Core Platform Capabilities</h2>
 			<p>Our API architecture provides the foundation for a modern lending platform, offering flexibility, scalability, and seamless integration.</p>
 			<ul class="cap-list">
-				<li class="cap-item">
+				<li class="cap-item from-left">
 					<Image src={Origination} alt='origination'></Image>
 					<div class="text-container">
 						<h3>Origination</h3>
 						<p>Accelerate loan growth and improve borrower satisfaction through a streamlined application process, enhanced data capture, and automated decisioning.</p>
 					</div>
 				</li>
-				<li class="cap-item">
+				<li class="cap-item from-right">
 					<Image src={Underwriting} alt="underwriting"></Image>
 					<div class="text-container">
 						<h3>Underwriting</h3>
 						<p>Mitigate risk and optimize portfolio performance with advanced analytics, predictive modeling, and robust scorecard capabilities. Reduce charge-offs and first payment defaults through precise risk assessment.</p>
 					</div>
 				</li>
-				<li class="cap-item">
+				<li class="cap-item from-left">
 					<Image src={Servicing} alt="servicing"></Image>
 					<div class="text-container">
 						<h3>Servicing</h3>
 						<p>Deliver exceptional customer experiences, increase loan retention, and maximize efficiency through automated workflows, self-service portals, and proactive communication.</p>
 					</div>
 				</li>
-				<li class="cap-item">
+				<li class="cap-item from-right">
 					<Image src={collections} alt="collections"></Image>
 					<div class="text-container">
 						<h3>Collections</h3>
 						<p>Optimize recovery rates and reduce delinquency costs with automated communications, and efficient payment processing.</p>
 					</div>
 				</li>
-				<li class="cap-item">
+				<li class="cap-item from-left">
 					<Image src={Payments} alt="payments"></Image>
 					<div class="text-container">
 						<h3>Payments</h3>
@@ -65,6 +65,79 @@ import Payments from '../assets/image/home-images/payments.png';
 			</ul>
 		</section>
 	</main>
+	<script>
+		import gsap from 'gsap';
+		import { ScrollTrigger } from "gsap/ScrollTrigger";
+		gsap.registerPlugin(ScrollTrigger);
+		const lefts = gsap.utils.toArray('.from-left');
+		const rights = gsap.utils.toArray('.from-right');
+		gsap.to('.capabilities', {
+			scrollTrigger: '.capabilities',
+			opacity: 1
+		});
+
+		lefts.forEach(left => {
+			gsap.set(left, {x: -500, opacity: 0});
+			const anim = gsap.to(left, {x:0, duration: 0.3,opacity: 1, paused: true});
+
+			ScrollTrigger.create({
+				trigger: left,
+				onEnter: () => anim.play()
+			});
+
+			ScrollTrigger.create({
+				trigger: left,
+				onLeave: () => anim.pause(0),
+			});
+
+
+			ScrollTrigger.create({
+				trigger: left,
+				onLeaveBack: () => anim.pause(0),
+			});
+
+			ScrollTrigger.create({
+				trigger: left,
+				onEnterBack: () => anim.play()
+			})
+		});
+
+		rights.forEach(right => {
+			gsap.set(right, {x: 500, opacity: 0});
+			const anim = gsap.to(right, {x:0, duration: 0.3,opacity: 1, paused: true});
+
+			ScrollTrigger.create({
+				trigger: right,
+				onEnter: () => anim.play()
+			});
+
+			ScrollTrigger.create({
+				trigger: right,
+				onLeave: () => anim.pause(0),
+			});
+
+
+			ScrollTrigger.create({
+				trigger: right,
+				onLeaveBack: () => anim.pause(0),
+			});
+
+			ScrollTrigger.create({
+				trigger: right,
+				onEnterBack: () => anim.play()
+			})
+			// gsap.to(right, {
+			// 	x: 0,
+			// 	opacity: 1,
+			// 	scrollTrigger: {
+			// 		trigger: right,
+			// 		scrub: false
+			// 	},
+			// 	duration: 0.3
+			// })
+		});
+
+	</script>
 </Layout>
 
 <style>
@@ -103,10 +176,12 @@ import Payments from '../assets/image/home-images/payments.png';
 		margin-bottom: 24px;
 		font-size: 56px;
 		text-align: center;
+		letter-spacing: -1.5px;
 	}
 
 	.capabilities > p {
 		text-align: center;
+		margin-bottom: 40px;
 	}
 
 .cap-list {
@@ -160,6 +235,23 @@ import Payments from '../assets/image/home-images/payments.png';
 }
 
 @media screen and (width < 1024px) {
-	
+	p {
+		font-size: 18px;
+	}
+
+	.hero {
+		flex-direction: column;
+		text-align: center;
+	}
+
+	.hero h1 {
+		font-size: 44px;
+	}
+
+	.capabilities h2 {
+		line-height: 60px;
+	}
+
+
 }
 </style>
