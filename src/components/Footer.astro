@@ -40,7 +40,7 @@ import introLogoWhite from "../assets/image/intro_logo_white.svg";
       </ul>
     </nav>
   </section>
-  <script>
+  <!-- <script>
     import gsap from 'gsap';
 		import { ScrollTrigger } from "gsap/ScrollTrigger";
 		gsap.registerPlugin(ScrollTrigger);
@@ -104,10 +104,49 @@ import introLogoWhite from "../assets/image/intro_logo_white.svg";
       trigger: ctaRight,
       onEnterBack: () => animThree.play()
     });
-  </script>
+  </script> -->
+<script>
+  import gsap from 'gsap';
+  import { ScrollTrigger } from "gsap/ScrollTrigger";
+  gsap.registerPlugin(ScrollTrigger);
+
+  // Function to create animations with ScrollTrigger
+  function createAnimation(target, fromVars, toVars) {
+    gsap.set(target, fromVars);
+    const anim = gsap.to(target, { ...toVars, paused: true });
+
+    ScrollTrigger.create({
+      trigger: target,
+      onEnter: () => anim.play(),
+      onEnterBack: () => anim.play(),
+      onLeave: () => anim.pause(0),
+      onLeaveBack: () => anim.pause(0),
+    });
+  }
+
+  // Select elements
+  const elements = [
+    { target: ".slogan", fromVars: { y: 50, opacity: 0 }, toVars: { y: 0, duration: 0.3, opacity: 1 } },
+    { target: ".cta .left", fromVars: { x: -300, opacity: 0 }, toVars: { x: 0, duration: 0.3, opacity: 1 } },
+    { target: ".cta .right", fromVars: { x: 300, opacity: 0 }, toVars: { x: 0, duration: 0.3, opacity: 1 } },
+  ];
+
+  // Apply animations
+  elements.forEach(({ target, fromVars, toVars }) => {
+    const el = document.querySelector(target);
+    if (el) {
+      createAnimation(el, fromVars, toVars);
+    }
+  });
+
+</script>
 </footer>
 
 <style>
+
+  footer {
+    overflow-x: clip;
+  }
 
   .slogan {
     width: 100%;

@@ -30,6 +30,39 @@ import contactSmall from "../assets/image/contact-small.png";
       </Card>
     </section>
   </main>
+  <script>
+    import gsap from 'gsap';
+    import { ScrollTrigger } from "gsap/ScrollTrigger";
+    gsap.registerPlugin(ScrollTrigger);
+  
+    // Function to create animations with ScrollTrigger
+    function createAnimation(target, fromVars, toVars) {
+      gsap.set(target, fromVars);
+      const anim = gsap.to(target, { ...toVars, paused: true });
+  
+      ScrollTrigger.create({
+        trigger: target,
+        onEnter: () => anim.play(),
+        onEnterBack: () => anim.play(),
+        onLeave: () => anim.pause(0),
+        onLeaveBack: () => anim.pause(0),
+      });
+    }
+  
+    // Select elements
+    const elements = [
+      { target: ".get-in-touch", fromVars: { opacity: 0 }, toVars: { duration: 0.3, opacity: 1 } },
+    ];
+  
+    // Apply animations
+    elements.forEach(({ target, fromVars, toVars }) => {
+      const el = document.querySelector(target);
+      if (el) {
+        createAnimation(el, fromVars, toVars);
+      }
+    });
+  
+  </script>
 </Layout>
 
 <style>

@@ -21,49 +21,49 @@ import Recoveries from "../assets/image/ADVANTAGE-IMAGES/Recoveries.png";
     <div class="card-container">
       <ul class="card-list">
         <Card 
-          class="adv-card"
+          class="adv-card from-left"
           imgSrc={FPDR}
           imgTitle="First Payment Default Rates"
           imgTxt="AI-powered credit scoring to minimize first payment defaults and charge offs.   Dynamic loan term adjustments minimize defaults."
         />
         <Card
-          class="adv-card"
+          class="adv-card from-right"
           imgSrc={DR}
           imgTitle="Delinquency Rates"
           imgTxt="Convenient and seamless payment options, combined with automated reminders and predictive analytics, proactively reduce late payments. Advanced payment solutions allow borrowers to set up flexible payment schedules, while intelligent alerts and insights identify at-risk accounts early, enabling timely interventions. "
         />
         <Card
-          class="adv-card"
+          class="adv-card from-left"
           imgSrc={COR}
           imgTitle="Charge-Off Rates"
           imgTxt="Implement early warning systems that provide predictive analytics to identify borrowers at risk of delinquency early on."
         />
         <Card
-          class="adv-card"
+          class="adv-card from-right"
           imgSrc={LALCR}
           imgTitle="Loan Approval and Lead Conversion Rates"
           imgTxt="Digital onboarding and real-time verification speed up approvals, using AI-powered decision engines to provide instant loan decisions."
         />
         <Card
-          class="adv-card"
+          class="adv-card from-left"
           imgSrc={ALPT}
           imgTitle="Average Loan Processing Times"
           imgTxt="Automated underwriting streamlines the process by implementing IBV and IDV services to streamline the loan process review while using real time collaboration tools to facilitate efficient communication between teams. Speed up conversion rates from days to hours to minutes to instantly."
         />
         <Card
-          class="adv-card"
+          class="adv-card from-right"
           imgSrc={CPLO}
           imgTitle="Cost Per Loan Originated"
           imgTxt="Reduce operational costs using data analytics and alternative data to optimize marketing spend and target the right customer segments. "
         />
         <Card
-          class="adv-card"
+          class="adv-card from-left"
           imgSrc={CRR}
           imgTitle="Customer Retention Rate"
           imgTxt="CRM and analytics to enhance the borrower experience and loyalty.  Utilize business rules and drip marketing campaigns with an omni media approach to customer engagement."
         />
         <Card
-          class="adv-card"
+          class="adv-card from-right"
           imgSrc={Recoveries}
           imgTitle="Recoveries"
           imgTxt="Optimized through early intervention, flexible plans, automated reminders, data-driven prioritization, and effective communication, maximizing lender returns while supporting borrower success."
@@ -71,6 +71,38 @@ import Recoveries from "../assets/image/ADVANTAGE-IMAGES/Recoveries.png";
       </ul>
     </div>
   </main>
+  <script>
+    import gsap from 'gsap';
+    import { ScrollTrigger } from "gsap/ScrollTrigger";
+    gsap.registerPlugin(ScrollTrigger);
+  
+    // Function to create animations with ScrollTrigger
+    function createAnimation(targets, fromVars, toVars) {
+      targets.forEach(target => {
+        gsap.set(target, fromVars);
+        const anim = gsap.to(target, { ...toVars, paused: true });
+  
+        ScrollTrigger.create({
+          trigger: target,
+          onEnter: () => anim.play(),
+          onEnterBack: () => anim.play(),
+          onLeave: () => anim.pause(0),
+          onLeaveBack: () => anim.pause(0),
+        });
+      });
+    }
+  
+    // Set capabilities opacity animation
+    gsap.to('.capabilities', {
+      scrollTrigger: '.capabilities',
+      opacity: 1
+    });
+  
+    // Animate elements
+    createAnimation(gsap.utils.toArray('.from-left'), { x: -500, opacity: 0 }, { x: 0, duration: 0.3, opacity: 1 });
+    createAnimation(gsap.utils.toArray('.from-right'), { x: 500, opacity: 0 }, { x: 0, duration: 0.3, opacity: 1 });
+  
+  </script>
 </Layout>
 
 <style>

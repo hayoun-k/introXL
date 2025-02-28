@@ -7,7 +7,7 @@ import contactSmall from "../assets/image/contact-small.png";
 
 ---
 <Layout>
-  <main>
+  <main class="about">
     <section class="hero">
       <h1>About us</h1>
       <p>Since 2003, our team of lending professionals has been at the forefront of the industry, mastering a wide range of lending models and loan products to meet your unique challenges.  At Intro XL, we are your trusted partner in consumer lending, delivering innovative solutions backed by decades of hands-on experience.</p>
@@ -32,6 +32,39 @@ import contactSmall from "../assets/image/contact-small.png";
       />
     </section>
   </main>
+  <script>
+    import gsap from 'gsap';
+    import { ScrollTrigger } from "gsap/ScrollTrigger";
+    gsap.registerPlugin(ScrollTrigger);
+  
+    // Function to create animations with ScrollTrigger
+    function createAnimation(target, fromVars, toVars) {
+      gsap.set(target, fromVars);
+      const anim = gsap.to(target, { ...toVars, paused: true });
+  
+      ScrollTrigger.create({
+        trigger: target,
+        onEnter: () => anim.play(),
+        onEnterBack: () => anim.play(),
+        onLeave: () => anim.pause(0),
+        onLeaveBack: () => anim.pause(0),
+      });
+    }
+  
+    // Select elements
+    const elements = [
+      { target: ".about", fromVars: { opacity: 0 }, toVars: { duration: 0.3, opacity: 1 } }
+    ];
+  
+    // Apply animations
+    elements.forEach(({ target, fromVars, toVars }) => {
+      const el = document.querySelector(target);
+      if (el) {
+        createAnimation(el, fromVars, toVars);
+      }
+    });
+  
+  </script>
 </Layout>
 
 <style>

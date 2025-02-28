@@ -1,6 +1,23 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Form from "../components/Form.astro";
+import Image from "astro/components/Image.astro";
+
+import usaepay from "../assets/image/partners/payments/USAepay_image.png";
+import repay from "../assets/image/partners/payments/Repay_image.png";
+import payliance from "../assets/image/partners/payments/Payliance_image.png";
+import flex from "../assets/image/partners/payments/Flex_image.png";
+import lpp from "../assets/image/partners/payments/LPP_image.png";
+import achworks from "../assets/image/partners/payments/ACH_Works_Image.png";
+import fis from "../assets/image/partners/payments/FIS_image.png";
+import auth from "../assets/image/partners/payments/authorize_dot_net_image.png";
+import usio from "../assets/image/partners/payments/Usio_image.png";
+
+const dataImages = Object.values(import.meta.glob("../assets/image/partners/data/*.png", { eager: true, import: "default" }));
+const commImages = Object.values(import.meta.glob("../assets/image/partners/comm/*.png", { eager: true, import: "default" }));
+const leadsImages = Object.values(import.meta.glob("../assets/image/partners/leads/*.png", { eager: true, import: "default" }));
+// const dataImageList = Object.values(dataImages);
+// console.log(dataImageList);
 ---
 <Layout>
   <main>
@@ -14,7 +31,97 @@ import Form from "../components/Form.astro";
       </div>
     </section>
     <section class="partner">
-      <section class="payments"></section>
+      <section class="payments">
+        <h2>Payments</h2>
+        <ul class="payments-container">
+          <li class="list-item"><Image src={usaepay} alt='USAepay logo' /></li>
+          <li class="list-item"><Image src={repay} alt="Repay logo" /></li>
+          <li class="list-item"><Image src={payliance} alt="Payliance logo" /></li>
+          <li class="list-item"><Image src={flex} alt="Flex logo" /></li>
+          <li class="list-item"><Image src={lpp} alt="LPP logo" /></li>
+          <li class="list-item"><Image src={achworks} alt="ACHworks logo" /></li>
+          <li class="list-item"><Image src={fis} alt="FIS logo" /></li>
+          <li class="list-item"><Image src={auth} alt="Auth logo" /></li>
+          <li class="list-item"><Image src={usio} alt="usio logo" /></li>
+        </ul>
+      </section>
+      <section class="data">
+        <h2>Data and analytics</h2>
+        <ul class="data-container">
+          {dataImages.map((image, index) => (
+            <li class="list-item"><Image src={image} alt={`Data Partner ${index + 1}`} /></li>
+          ))}
+        </ul>
+      </section>
+      <section class="comm">
+        <h2>Communications</h2>
+        <ul class="comm-container">
+          {commImages.map((image, index) => (
+            <li class="list-item"><Image src={image} alt={`Communication Partner ${index + 1}`} /></li>
+          ))}
+        </ul>
+      </section>
+      <section class="leads">
+        <h2>Leads</h2>
+        <ul class="leads-container">
+          {leadsImages.map((image, index) => (
+            <li class="list-item"><Image src={image} alt={`Leads Partner ${index + 1}`} /></li>
+          ))}
+        </ul>
+      </section>
     </section>
   </main>
 </Layout>
+
+<style>
+
+  .partner {
+    padding: 60px 140px;
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+  }
+
+  .payments, .data, .comm, .leads {
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+  }
+
+  h2 {
+    font-size: 40px;
+    line-height: 46px;
+    letter-spacing: -2px;
+    text-align: center;
+  }
+
+  ul {
+    display: grid;
+    grid-template-columns: repeat(3, 200px);
+    justify-content: space-between;
+    align-items: center;
+    row-gap: 50px;
+  }
+
+  @media screen and (width<1440px) {
+    .partner {
+      padding-inline: 40px;
+    }
+  }
+
+  @media screen and (width<1024px) {
+    ul {
+      grid-template-columns: 1fr;
+      row-gap: 20px;
+    }
+
+    .list-item img {
+      min-height: 60px;
+      max-height: 100px;
+      object-fit: contain;
+      display: flex;
+      justify-self: center;
+      align-items: center;
+    }
+  }
+</style>

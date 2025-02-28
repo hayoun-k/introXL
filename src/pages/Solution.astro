@@ -111,6 +111,40 @@ import scalable from "../assets/image/ADVANTAGE-IMAGES/icons/icons/scalable.svg"
     </section>
   </main>
 </Layout>
+<script>
+  import gsap from 'gsap';
+  import { ScrollTrigger } from "gsap/ScrollTrigger";
+  gsap.registerPlugin(ScrollTrigger);
+
+  // Function to create animations with ScrollTrigger
+  function createAnimation(target, fromVars, toVars) {
+    gsap.set(target, fromVars);
+    const anim = gsap.to(target, { ...toVars, paused: true });
+
+    ScrollTrigger.create({
+      trigger: target,
+      onEnter: () => anim.play(),
+      onEnterBack: () => anim.play(),
+      onLeave: () => anim.pause(0),
+      onLeaveBack: () => anim.pause(0),
+    });
+  }
+
+  // Select elements
+  const elements = [
+    { target: ".model", fromVars: { opacity: 0 }, toVars: { duration: 0.3, opacity: 1 } },
+    { target: ".benefits", fromVars: { opacity: 0 }, toVars: { duration: 0.3, opacity: 1 } },
+  ];
+
+  // Apply animations
+  elements.forEach(({ target, fromVars, toVars }) => {
+    const el = document.querySelector(target);
+    if (el) {
+      createAnimation(el, fromVars, toVars);
+    }
+  });
+
+</script>
 
 <style>
 
@@ -166,6 +200,44 @@ import scalable from "../assets/image/ADVANTAGE-IMAGES/icons/icons/scalable.svg"
     display: flex;
   }
 
+  .benefits {
+    padding: 80px 140px;
+  }
+
+  .benefits h2 {
+    font-size: 56px;
+    line-height: 60px;
+    letter-spacing: -1.5px;
+    text-align: center;
+  }
+
+  .benefit-list {
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+  }
+
+  .upper, .below {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .benefit-item {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 35px;
+  }
+
+  .benefit-item p {
+    font-weight: 500;
+    text-align: center;
+  }
+
   @media screen and (width < 1440px) {
     .model {
       padding-inline: 40px;
@@ -173,6 +245,25 @@ import scalable from "../assets/image/ADVANTAGE-IMAGES/icons/icons/scalable.svg"
 
     .model-list {
       grid-template-columns: 1fr;
+    }
+
+    .benefits {
+      padding-inline: 40px;
+    }
+  }
+
+  @media screen and (width < 1024px) {
+
+    .benefits {
+      padding: 20px;
+    }
+
+    .benefits h2 {
+      font-size: 32px;
+    }
+
+    .upper, .below {
+      flex-direction: column;
     }
   }
 </style>

@@ -21,6 +21,10 @@ body {
   position: relative;
 }
 
+main {
+  overflow-x: clip;
+}
+
 h1,h2,h3,p,a,li,span {
   font-family: 'Manrope', sans-serif;
 }
